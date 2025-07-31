@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.dat.tran</groupId>
+  <artifactId>kafka-library</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Kafka Multi-Module Project</name>
+  <description>Kafka system using Strategy and Template patterns</description>
+  <modules>
+    <module>kafka-core</module>
+    <module>kafka-model</module>
+    <module>kafka-annotation</module>
+    <module>kafka-registry</module>
+    <module>kafka-consumer</module>
+    <module>kafka-strategy</module>
+    <module>kafka-handler</module>
+    <module>kafka-producer</module>
+    <module>kafka-app</module>
+  </modules>
+  <properties>
+    <!-- Java and Spring Boot versions -->
+    <java.version>17</java.version>
+    <spring.boot.version>3.0.0</spring.boot.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <!-- Import Spring Boot dependencies for all modules -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
