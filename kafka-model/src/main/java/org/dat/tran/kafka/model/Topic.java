@@ -38,6 +38,6 @@ public enum Topic {
     }
 
     public boolean supports(EventType eventType) {
-        return false;
+        return eventTypes.contains(eventType); // ✅ Correct implementation
     }
 }

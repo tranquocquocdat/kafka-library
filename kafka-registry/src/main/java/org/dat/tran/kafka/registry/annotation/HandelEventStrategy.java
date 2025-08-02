@@ -1,4 +1,4 @@
-package org.dat.tran.kafka.registry.anotation;
+package org.dat.tran.kafka.registry.annotation;
 
 
 import org.dat.tran.kafka.model.EventType;

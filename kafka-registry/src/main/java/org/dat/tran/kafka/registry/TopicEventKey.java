@@ -3,7 +3,7 @@ package org.dat.tran.kafka.registry;
 
 import org.dat.tran.kafka.model.EventType;
 import org.dat.tran.kafka.model.Topic;
-import org.dat.tran.kafka.registry.anotation.HandelEventStrategy;
+import org.dat.tran.kafka.registry.annotation.HandelEventStrategy;
 
 import java.util.Objects;
 
