@@ -1,7 +1,7 @@
 // kafka-model/src/main/java/com/example/kafka/model/UserEvent.java
 package org.dat.tran.kafka.model;
 
-public class UserEvent {
+public class UserEvent{
     private String userId;
     private String username;
     private EventType eventType;

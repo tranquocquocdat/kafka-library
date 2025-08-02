@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.dat.tran</groupId>
@@ -7,16 +7,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>kafka-app</artifactId>
-    <name>Archetype - kafka-app</name>
-    <url>http://maven.apache.org</url>
+    <n>Kafka Application</n>
 
     <dependencies>
-        <!-- Import all modules as dependencies -->
-        <dependency>
-            <groupId>org.dat.tran</groupId>
-            <artifactId>kafka-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!-- All modules -->
         <dependency>
             <groupId>org.dat.tran</groupId>
             <artifactId>kafka-model</artifactId>
@@ -24,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>org.dat.tran</groupId>
-            <artifactId>kafka-annotation</artifactId>
+            <artifactId>kafka-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -34,35 +28,26 @@
         </dependency>
         <dependency>
             <groupId>org.dat.tran</groupId>
-            <artifactId>kafka-consumer</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.dat.tran</groupId>
-            <artifactId>kafka-strategy</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.dat.tran</groupId>
             <artifactId>kafka-handler</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.dat.tran</groupId>
-            <artifactId>kafka-producer</artifactId>
+            <artifactId>kafka-client</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- Spring Boot and Kafka dependencies -->
+
+        <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
-        <!-- Jackson for JSON (already transitively needed) -->
     </dependencies>
+
     <build>
         <plugins>
             <plugin>

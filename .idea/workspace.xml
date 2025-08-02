@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ecc59f30-5835-4315-b2d8-867b7ac16699" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/kafka-app/src/main/java/org/dat/tran/kafka/app/MonitoringController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-client/src/main/java/org/dat/tran/kafka/client/KafkaEventConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-client/src/main/java/org/dat/tran/kafka/client/config/KafkaClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-client/src/main/java/org/dat/tran/kafka/client/producer/AbstractKafkaProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-core/src/main/java/org/dat/tran/kafka/core/EventStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-handler/src/main/java/org/dat/tran/kafka/handler/OrderCancelledStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-handler/src/main/java/org/dat/tran/kafka/handler/OrderCreatedAnalyticsStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-handler/src/main/java/org/dat/tran/kafka/handler/OrderCreatedStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-handler/src/main/java/org/dat/tran/kafka/handler/UserCreatedStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-model/src/main/java/org/dat/tran/kafka/model/Topic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-registry/src/main/java/org/dat/tran/kafka/registry/EventStrategyRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-registry/src/main/java/org/dat/tran/kafka/registry/TopicEventKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kafka-registry/src/main/java/org/dat/tran/kafka/registry/anotation/HandelEventStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-annotation/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-annotation/src/main/java/org/dat/tran/kafka/annotation/EventStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-annotation/src/main/java/org/dat/tran/kafka/annotation/TopicHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-annotation/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-annotation/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-annotation/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-annotation/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-app/src/main/java/org/dat/tran/kafka/app/KafkaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-app/src/main/java/org/dat/tran/kafka/app/KafkaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-app/src/main/java/org/dat/tran/kafka/app/TestDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-app/src/main/java/org/dat/tran/kafka/app/TestDataRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-app/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-app/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer/src/main/java/org/dat/tran/DynamicKafkaConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer/src/main/java/org/dat/tran/KafkaConsumerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-core/src/main/java/org/dat/tran/kafka/handler/AbstractKafkaConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-core/src/main/java/org/dat/tran/kafka/handler/DefaultKafkaMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-core/src/main/java/org/dat/tran/kafka/handler/KafkaMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-core/src/main/java/org/dat/tran/kafka/handler/KafkaMessageHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-handler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-handler/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-handler/src/main/java/org/dat/tran/kafka/handler/OrderEventHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-handler/src/main/java/org/dat/tran/kafka/handler/UserEventHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-model/src/main/java/org/dat/tran/kafka/model/EventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-model/src/main/java/org/dat/tran/kafka/model/EventType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-model/src/main/java/org/dat/tran/kafka/model/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-model/src/main/java/org/dat/tran/kafka/model/UserEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/src/main/java/org/dat/tran/kafka/producer/AbstractKafkaProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/src/main/java/org/dat/tran/kafka/producer/MessageValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/src/main/java/org/dat/tran/kafka/producer/OrderEventProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-client/src/main/java/org/dat/tran/kafka/client/producer/OrderEventProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/src/main/java/org/dat/tran/kafka/producer/UserEventProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-client/src/main/java/org/dat/tran/kafka/client/producer/UserEventProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-producer/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-registry/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-registry/src/main/java/org/dat/tran/kafka/handler/KafkaHandlerRegistry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-strategy/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-strategy/src/main/java/org/dat/tran/kafka/handler/EventStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-strategy/src/main/java/org/dat/tran/kafka/handler/OrderCreatedStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-strategy/src/main/java/org/dat/tran/kafka/handler/UserCreatedStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-strategy/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-strategy/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-strategy/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-strategy/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/maven/archetype.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="30e6aYyP5coe4imE7Ei7HXCmmBs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/framework/src/main/java/org/dat/tran/kafka/framework/annotation" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\IT-project\BE\kafka-library\framework\src\main\java\org\dat\tran\kafka\framework\annotation" />
+      <recent name="E:\IT-project\BE\kafka-library\framework\src\main\java\org\dat\tran\kafka\framework\core" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\IT-project\BE\kafka-library" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.dat.tran.kafka.client" />
+      <recent name="org.dat.tran.kafka.handler" />
+      <recent name="org.dat.tran.kafka.framework.registry" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ecc59f30-5835-4315-b2d8-867b7ac16699" name="Default Changelist" comment="" />
+      <created>1753975756398</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753975756398</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
