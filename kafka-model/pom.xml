@@ -10,6 +10,13 @@
     </parent>
     <artifactId>kafka-model</artifactId>
     <name>Kafka Models</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.dat.tran</groupId>
+            <artifactId>kafka-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <!-- No dependencies - pure data models -->
 </project>

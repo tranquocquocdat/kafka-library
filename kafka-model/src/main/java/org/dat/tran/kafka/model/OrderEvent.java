@@ -1,7 +1,9 @@
 // kafka-model/src/main/java/com/example/kafka/model/OrderEvent.java
 package org.dat.tran.kafka.model;
 
-public class OrderEvent {
+import org.dat.tran.kafka.core.Event;
+
+public class OrderEvent extends Event {
     private String orderId;
     private double amount;
     private EventType eventType;

@@ -39,6 +39,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="30e6aYyP5coe4imE7Ei7HXCmmBs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -107,16 +108,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/kafka-registry/src/main/java/org/dat/tran/kafka/registry/EventStrategyRegistry.java</url>
+          <line>20</line>
+          <properties field="strategies" class="org.dat.tran.kafka.registry.EventStrategyRegistry" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/kafka-app/src/main/java/org/dat/tran/kafka/app/KafkaApplication.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/kafka-registry/src/main/java/org/dat/tran/kafka/registry/EventStrategyRegistry.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.concurrent.ConcurrentHashMap$MapEntry" memberName="key" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

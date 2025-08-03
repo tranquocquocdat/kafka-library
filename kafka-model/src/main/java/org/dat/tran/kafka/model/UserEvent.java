@@ -1,7 +1,9 @@
 // kafka-model/src/main/java/com/example/kafka/model/UserEvent.java
 package org.dat.tran.kafka.model;
 
-public class UserEvent{
+import org.dat.tran.kafka.core.Event;
+
+public class UserEvent extends Event {
     private String userId;
     private String username;
     private EventType eventType;
