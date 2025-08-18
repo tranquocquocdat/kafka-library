@@ -1,0 +1,196 @@
+services:
+  kafka-gen:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka-gen
+    volumes:
+      - ./clusterID:/tmp/clusterID
+    command: >
+      bash -c "
+        if [ ! -f /tmp/clusterID/cluster_id ]; then
+          echo 'Generating cluster ID...'
+          kafka-storage.sh random-uuid > /tmp/clusterID/cluster_id
+          echo 'Cluster ID generated:'
+          cat /tmp/clusterID/cluster_id
+        else
+          echo 'Using existing cluster ID:'
+          cat /tmp/clusterID/cluster_id
+        fi
+      "
+    networks:
+      - kafka-network
+
+  kafka1:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka1
+    hostname: kafka1
+    ports:
+      - "9092:9092"
+      - "39092:39092"
+      - "9999:9999"
+    environment: &kafka-env
+      # ===== KRAFT CONFIGURATION =====
+      KAFKA_PROCESS_ROLES: 'controller,broker'
+      KAFKA_NODE_ID: 1
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka1:29093,2@kafka2:29093,3@kafka3:29093'
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENERS: BROKER://kafka1:19092,EXTERNAL://0.0.0.0:39092,CONTROLLER://kafka1:29093
+      KAFKA_ADVERTISED_LISTENERS: BROKER://kafka1:19092,EXTERNAL://localhost:39092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,BROKER:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: BROKER
+
+      # ===== LOG CONFIGURATION =====
+      KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
+      KAFKA_LOG_RETENTION_HOURS: 168
+      KAFKA_LOG_SEGMENT_BYTES: 1073741824
+      KAFKA_LOG_CLEANUP_POLICY: delete
+
+      # ===== TOPIC CONFIGURATION =====
+      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_DEFAULT_REPLICATION_FACTOR: 3
+      KAFKA_MIN_INSYNC_REPLICAS: 2
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
+      KAFKA_DELETE_TOPIC_ENABLE: 'true'
+
+      # ===== PERFORMANCE TUNING =====
+      KAFKA_HEAP_OPTS: "-Xmx1G -Xms1G"
+      KAFKA_JVM_PERFORMANCE_OPTS: "-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35"
+
+      # ===== JMX CONFIGURATION =====
+      KAFKA_JMX_OPTS: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.port=9999"
+      JMX_PORT: 9999
+
+      # ===== LOGGING CONFIGURATION =====
+      KAFKA_LOG4J_LOGGERS: 'kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO'
+
+    volumes:
+      - ./clusterID:/tmp/clusterID
+      - kafka1-data:/tmp/kraft-combined-logs
+    command: &kafka-command >
+      bash -c "
+        echo 'Waiting for cluster ID...'
+        until [ -f /tmp/clusterID/cluster_id ]; do
+          sleep 1
+        done
+
+        CLUSTER_ID=$$(cat /tmp/clusterID/cluster_id)
+        echo 'Using cluster ID: $$CLUSTER_ID'
+
+        if [ ! -f /tmp/kraft-combined-logs/meta.properties ]; then
+          echo 'Formatting storage...'
+          kafka-storage.sh format -t $$CLUSTER_ID -c /etc/kafka/kafka.properties
+        fi
+
+        echo 'Starting Kafka...'
+        /etc/confluent/docker/run
+      "
+    depends_on:
+      kafka-gen:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics.sh --bootstrap-server localhost:39092 --list > /dev/null 2>&1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
+  kafka2:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka2
+    hostname: kafka2
+    ports:
+      - "9093:9093"
+      - "39093:39093"
+      - "9998:9999"
+    environment:
+      <<: *kafka-env
+      KAFKA_NODE_ID: 2
+      KAFKA_LISTENERS: BROKER://kafka2:19093,EXTERNAL://0.0.0.0:39093,CONTROLLER://kafka2:29093
+      KAFKA_ADVERTISED_LISTENERS: BROKER://kafka2:19093,EXTERNAL://localhost:39093
+    volumes:
+      - ./clusterID:/tmp/clusterID
+      - kafka2-data:/tmp/kraft-combined-logs
+    command: *kafka-command
+    depends_on:
+      kafka-gen:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics.sh --bootstrap-server localhost:39093 --list > /dev/null 2>&1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
+  kafka3:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka3
+    hostname: kafka3
+    ports:
+      - "9094:9094"
+      - "39094:39094"
+      - "9997:9999"
+    environment:
+      <<: *kafka-env
+      KAFKA_NODE_ID: 3
+      KAFKA_LISTENERS: BROKER://kafka3:19094,EXTERNAL://0.0.0.0:39094,CONTROLLER://kafka3:29093
+      KAFKA_ADVERTISED_LISTENERS: BROKER://kafka3:19094,EXTERNAL://localhost:39094
+    volumes:
+      - ./clusterID:/tmp/clusterID
+      - kafka3-data:/tmp/kraft-combined-logs
+    command: *kafka-command
+    depends_on:
+      kafka-gen:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics.sh --bootstrap-server localhost:39094 --list > /dev/null 2>&1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    hostname: kafka-ui
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local-kraft-cluster
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka1:19092,kafka2:19093,kafka3:19094
+      KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: PLAINTEXT
+      DYNAMIC_CONFIG_ENABLED: "true"
+    depends_on:
+      kafka1:
+        condition: service_healthy
+      kafka2:
+        condition: service_healthy
+      kafka3:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
+networks:
+  kafka-network:
+    driver: bridge
+    name: kafka-network
+
+volumes:
+  kafka1-data:
+  kafka2-data:
+  kafka3-data:
+  clusterID:
